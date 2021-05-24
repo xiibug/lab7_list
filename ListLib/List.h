@@ -104,7 +104,7 @@ inline std::ifstream& operator>>(std::ifstream& istr, TList<T1>& A)
 
 template <class T>
 TList<T>::TList() {
-    this->root = nullptr;
+    this->root = 0;
     this->end = 0;
     this->count = 0;
 }
@@ -133,7 +133,7 @@ TList<T>::TList(const TList<T>& _v)
 
 template <class T>
 TList<T>::~TList<T>() {
-    if (this->root != nullptr) {
+    if (this->root != 0) {
         this->count = 0;
         TListElem<T>* i = this->root;
         while (i != 0) {
@@ -151,7 +151,7 @@ TList<T>& TList<T>::operator = (const TList<T>& _v) {
     if (this == &_v) {
         return *this;
     }
-    if (this->root != nullptr) {
+    if (this->root != 0) {
         this->count = 0;
         TListElem<T>* i = root;
         while (i != 0) {
@@ -319,7 +319,7 @@ inline void TList<T>::Del(TListElem<T>* e)
     this->count--;
 }
 
-
+template<>
 inline TList<int> TList<int>::DividedByK(int k)
 {
     TList<int> res;
